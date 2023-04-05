@@ -41,6 +41,7 @@ body {
   color: #FFF;
   margin: 0 auto;
   text-align: center;
+  width: 100%;
 }
 
 h1 {
@@ -81,6 +82,9 @@ a{
     margin: 1.5em auto;
     display: inline-block;
 }
+body > div > p > span{
+  text-decoration: line-through;
+}
 
 @media all and (max-width: 768px) {
   h1 {
@@ -100,6 +104,7 @@ a{
 <body>
     <div class="container">
         <img src="TEDxUniMontemorelos_white_tagline.svg" alt="TEDxUniMontemorelos">
+        <h1 id="headline"></h1>
         <div id="countdown">
           <ul>
             <li><span id="days"></span>Días</li>
@@ -109,61 +114,67 @@ a{
           </ul>
         </div>
         <div id="content" class="emoji">
-          <span>🥳</span>
-          <span>🎉</span>
-          <span>🎂</span>
+          <span>📢</span>
+          <span>🤓</span>
+          <span>🎤</span>
         </div>
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSdiNbvbZML6PUEF8lyu-QqjIa08bu-qn9-R0xAzF62EHmH7Nw/viewform">Inscríbete</a>
         <p><strong>Fecha:</strong> 25 de abril del 2023<br>
             <strong>Hora:</strong> 7pm<br>
-            <strong>Lugar:</strong> Auditorio FACSA<br>
-            <strong>Costo:</strong> $1,000MX<br>
+            <strong>Lugar:</strong> Universidad de Montemorelos | Auditorio de FACSA<br>
+            <strong>Costo:</strong> <span>$1,500MX</span> $1,000MX<br>
         </p>
       </div>
       <script>
-        (function () {
-  const second = 1000,
-        minute = second * 60,
-        hour = minute * 60,
-        day = hour * 24;
+        // Esta función se autoejecuta inmediatamente cuando el script se carga en el navegador
+          (function () {
+            // Define los valores de tiempo en milisegundos para calcular el tiempo restante
+            const second = 1000,
+              minute = second * 60,
+              hour = minute * 60,
+              day = hour * 24;
 
-  //I'm adding this section so I don't have to keep updating this pen every year :-)
-  //remove this if you don't need it
-  let today = new Date(),
-      dd = String(today.getDate()).padStart(2, "0"),
-      mm = String(today.getMonth() + 1).padStart(2, "0"),
-      yyyy = today.getFullYear(),
-      nextYear = yyyy + 1,
-      dayMonth = "04/25/",
-      birthday = dayMonth + yyyy;
-  
-  today = mm + "/" + dd + "/" + yyyy;
-  if (today > birthday) {
-    birthday = dayMonth + nextYear;
-  }
-  //end
-  
-  const countDown = new Date(birthday).getTime(),
-      x = setInterval(function() {    
+            // Obtiene la fecha actual y el año siguiente
+            let today = new Date(),
+              dd = String(today.getDate()).padStart(2, "0"), // Obtiene el día actual en formato de dos dígitos
+              mm = String(today.getMonth() + 1).padStart(2, "0"), // Obtiene el mes actual en formato de dos dígitos
+              yyyy = today.getFullYear(), // Obtiene el año actual
+              nextYear = yyyy + 1, // Obtiene el año siguiente
+              dayMonth = "04/25/", // Define la fecha de cumpleaños en formato mes/día/
+              birthday = dayMonth + yyyy; // Combina la fecha de cumpleaños con el año actual para obtener la fecha de cumpleaños completa
 
-        const now = new Date().getTime(),
-              distance = countDown - now;
+            // Formatea la fecha actual en un string con el mismo formato de mes/día/año que la fecha de cumpleaños
+            today = mm + "/" + dd + "/" + yyyy;
 
-        document.getElementById("days").innerText = Math.floor(distance / (day)),
-          document.getElementById("hours").innerText = Math.floor((distance % (day)) / (hour)),
-          document.getElementById("minutes").innerText = Math.floor((distance % (hour)) / (minute)),
-          document.getElementById("seconds").innerText = Math.floor((distance % (minute)) / second);
+            // Si la fecha actual es posterior a la fecha de cumpleaños, establece la fecha de cumpleaños al próximo año
+            if (today > birthday) {
+              birthday = dayMonth + nextYear;
+            }
 
-        //do something later when date is reached
-        if (distance < 0) {
-          document.getElementById("headline").innerText = "It's my birthday!";
-          document.getElementById("countdown").style.display = "none";
-          document.getElementById("content").style.display = "block";
-          clearInterval(x);
-        }
-        //seconds
-      }, 0)
-  }());
+            // Obtiene la fecha y hora de la fecha de cumpleaños
+            const countDown = new Date(birthday).getTime(),
+              // Crea un intervalo que se ejecutará cada milisegundo para actualizar el contador de tiempo restante
+              x = setInterval(function () {
+                // Obtiene la fecha y hora actuales
+                const now = new Date().getTime(),
+                  // Calcula la diferencia entre la fecha de cumpleaños y la fecha y hora actuales
+                  distance = countDown - now;
+
+                // Actualiza los elementos HTML con el tiempo restante en días, horas, minutos y segundos
+                document.getElementById("days").innerText = Math.floor(distance / (day)),
+                  document.getElementById("hours").innerText = Math.floor((distance % (day)) / (hour)),
+                  document.getElementById("minutes").innerText = Math.floor((distance % (hour)) / (minute)),
+                  document.getElementById("seconds").innerText = Math.floor((distance % (minute)) / second);
+
+                // Si la fecha y hora actuales son posteriores a la fecha de cumpleaños, detiene el intervalo y muestra un mensaje de "Llegó la hora"
+                if (distance < 0) {
+                  document.getElementById("headline").innerText = "Llegó la hora!";
+                  document.getElementById("countdown").style.display = "none";
+                  document.getElementById("content").style.display = "block";
+                  clearInterval(x);
+                }
+              }, 0)
+          }());
       </script>
 </body>
 </html>
