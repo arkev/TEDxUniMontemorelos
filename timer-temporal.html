@@ -1,180 +1,615 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TEDxUniMontemorelos</title>
-    <style>
-        /* general styling */
-:root {
-  --smaller: .75;
-}
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="https://tedx.amsterdam/wp-content/uploads/2021/03/favicon-1.ico" sizes="32x32" />
+  <link rel="icon" href="https://tedx.amsterdam/wp-content/uploads/2021/03/favicon-1.ico" sizes="192x192" />
+  <link rel="apple-touch-icon" href="https://tedx.amsterdam/wp-content/uploads/2021/03/favicon-1.ico" />
+  <meta name="msapplication-TileImage" content="https://tedx.amsterdam/wp-content/uploads/2021/03/favicon-1.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Roboto:ital,wght@0,100;0,300;0,400;1,400&display=swap"
+    rel="stylesheet">
+  <title>TEDxUniMontemorelos</title>
+  <style>
+    /* general styling */
+    :root {
+      --smaller: .75;
+    }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-html, body {
-  height: 100%;
-  margin: 0;
-}
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+    }
 
-body {
-  align-items: center;
-  background-color: #000;
-  display: flex;
-  font-family: -apple-system, 
-    BlinkMacSystemFont, 
-    "Segoe UI", 
-    Roboto, 
-    Oxygen-Sans, 
-    Ubuntu, 
-    Cantarell, 
-    "Helvetica Neue", 
-    sans-serif;
-}
+    body {
+      background: #000 url(background-ted.svg) no-repeat 0 0;
+      background-size: cover;
+      font-family: 'Roboto', sans-serif;
+    }
 
-.container {
-  color: #FFF;
-  margin: 0 auto;
-  text-align: center;
-  width: 100%;
-}
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: 'Oswald', sans-serif;
+    }
 
-h1 {
-  font-weight: normal;
-  letter-spacing: .125rem;
-  text-transform: uppercase;
-}
+    #cuentaregresiva {
+      display: flex;
+      align-items: center;
+      margin-bottom: 3em;
+    }
 
-li {
-  display: inline-block;
-  font-size: 1.5em;
-  list-style-type: none;
-  padding: 1em;
-  text-transform: uppercase;
-}
+    .container {
+      color: #FFF;
+      margin: 0 auto;
+      text-align: center;
+      width: 90%;
+    }
 
-li span {
-  display: block;
-  font-size: 4.5rem;
-}
+    h1 {
+      font-weight: normal;
+      letter-spacing: .125rem;
+      text-transform: uppercase;
+    }
 
-.emoji {
-  display: none;
-  padding: 1rem;
-}
+    li {
+      display: inline-block;
+      font-size: 1.5em;
+      list-style-type: none;
+      padding: 1em;
+      text-transform: uppercase;
+    }
 
-.emoji span {
-  font-size: 4rem;
-  padding: 0 .5rem;
-}
+    li span {
+      display: block;
+      font-size: 4.5rem;
+    }
 
-a{
-    text-decoration: none;
-    color: white;
-    background: #f00;
-    padding: 0.5em 1.5em;
-    font-size: 1.3em;
-    margin: 1.5em auto;
-    display: inline-block;
-}
-body > div > p > span{
-  text-decoration: line-through;
-}
+    .emoji {
+      display: none;
+      padding: 1rem;
+    }
 
-@media all and (max-width: 768px) {
-  h1 {
-    font-size: calc(1.5rem * var(--smaller));
-  }
-  
-  li {
-    font-size: calc(1.125rem * var(--smaller));
-  }
-  
-  li span {
-    font-size: calc(3.375rem * var(--smaller));
-  }
-}
-    </style>
+    .emoji span {
+      font-size: 4rem;
+      padding: 0 .5rem;
+    }
+
+    #cuentaregresiva>div>a, footer > div > a {
+      text-decoration: none;
+      color: white;
+      background: #f00;
+      padding: 0.5em 1.5em;
+      font-size: 1.3em;
+      margin: 1.5em auto;
+      display: inline-block;
+      transition: all .3s ease-in-out;
+    }
+
+    #cuentaregresiva>div>a:hover, footer > div > a:hover {
+      color: #f00;
+      background: white;
+    }
+
+    #cuentaregresiva>div>a:active, footer > div > a:active {
+      color: rgb(187, 5, 5);
+      background: rgb(214, 212, 212);
+      box-shadow: 0 0 6px 3px #666 inset;
+    }
+
+    body>div>p>span {
+      text-decoration: line-through;
+    }
+
+    #cuentaregresiva>div>img {
+      margin-top: 8em;
+    }
+
+    #theme {
+      background: #eb0028;
+      color: white;
+      padding: 5em 0;
+    }
+
+    #theme>div {
+      margin: 0 auto;
+      width: 90%;
+      max-width: 1440px;
+    }
+
+    #theme h2 {
+      color: black;
+      font-size: 2.8em;
+      line-height: 1.3em;
+      margin-bottom: 1em;
+    }
+
+    #theme p {
+      font-size: 1.2em;
+    }
+
+    #ponentes {
+      color: white;
+      padding: 5em 0;
+    }
+
+    #ponentes h2 {
+      font-size: 2.8em;
+      line-height: 1.3em;
+      margin: 0 auto;
+      width: 90%;
+      max-width: 1440px;
+    }
+
+    #ponentes>div {
+      margin: 0 auto;
+      width: 90%;
+      max-width: 1440px;
+      display: grid;
+      gap: 1em;
+      grid-template: 1fr 1fr 1fr 1fr / 1fr 1fr;
+      align-items: flex-start;
+    }
+
+    #ponentes img {
+      width: 100%;
+      margin-top: 2em;
+      border-radius: 50%;
+      border: 6px solid #eb0028;
+    }
+
+    #ponentes h3 {
+      font-size: 1.3em;
+      line-height: 1.9em;
+      margin-bottom: 10px;
+      border-bottom: 3px solid #eb0028;
+    }
+
+    #cuentaregresiva>div>p>span {
+      text-decoration: line-through;
+    }
+
+    #partners {
+      background: #eb0028;
+      padding: 5em 0;
+    }
+
+    #partners h2 {
+      color: white;
+      font-size: 2.8em;
+      line-height: 1.3em;
+      margin-bottom: 1em;
+    }
+    #partners p {
+      font-size: 1.2em;
+    }
+
+    #partners>div {
+      margin: 0 auto;
+      width: 90%;
+      max-width: 1440px;
+    }
+    table {
+      width: 100%;
+      margin: 2em 0;
+    }
+    td, th {
+      border: 2px solid black;
+      padding: 10px;
+    }
+    th {
+      text-align: left;
+    }
+    td {
+      font-weight: 100;
+    }
+    #partners a{
+      color: white;
+      font-weight: bold;
+    }
+    footer {
+      color: white;
+      padding: 65px 0 30px;
+      background-color: #000;
+    }
+    footer >div {
+      margin: 0 auto 50px;
+      width: 90%;
+      max-width: 1440px;
+      display: block;
+      text-align: center;
+    }
+    footer a{
+      color: #eb0028;
+      font-weight: bold;
+    }
+    footer > div > div:nth-child(3) > a > img {
+      display: inline-block;
+      width: 54px;
+      margin:5px 8px;
+    }
+    body > footer > div > div:nth-child(4){
+      grid-column-start: 1;
+      grid-column-end:4;
+      margin-top: 1em;
+    }
+    body > footer > div > div:nth-child(1){
+      grid-column-start: 1;
+      grid-column-end:2;
+    }
+    #patrocinadores{
+      color: #eb0028;
+      padding: 50px 0;
+      background-color: white;
+    }
+    #patrocinadores > div {
+      margin: 0 auto;
+      width: 90%;
+      max-width: 1440px;
+    }
+    #patrocinadores > div > div {
+      display: grid;
+      grid-template: 1fr 1fr 1fr / 1fr 1fr;
+      gap: 1em;
+      align-content: center;
+      justify-content: space-between;
+      align-items: center;
+      justify-items: center;
+    }
+    #patrocinadores h2 {
+      color: #eb0028;
+      font-size: 2.8em;
+      line-height: 1.3em;
+    }
+    #patrocinadores img {
+      width: 100%;
+    }
+
+    @media all and (max-width: 768px) {
+      body {
+        background-size: cover;
+        background-position: -60px 0;
+      }
+
+      h1 {
+        font-size: calc(1.5rem * var(--smaller));
+      }
+
+      li {
+        font-size: calc(1.125rem * var(--smaller));
+      }
+
+      li span {
+        font-size: calc(3.375rem * var(--smaller));
+      }
+    }
+
+    @media (min-width: 768px) {
+      #theme p {
+        columns: 2;
+      }
+
+      #ponentes>div {
+        grid-template: 1fr 1fr 1fr / 1fr 1fr 1fr;
+      }
+
+      #ponentes h3 {
+        font-size: 1.7em;
+      }
+      footer{
+        padding: 65px 0 0;
+      }
+      
+      footer >div {
+        display: grid;
+        gap: 1em;
+        grid-template: 1fr 1fr/ 1fr 1fr 1fr;
+        align-items: baseline;
+        justify-content: space-between;
+        margin: 0 auto;
+      }
+      #patrocinadores > div > div {
+        grid-template: 1fr 1fr / 1fr 1fr 1fr;
+      }
+      
+    }
+
+    @media (min-width: 1024px) {
+      #ponentes>div {
+        grid-template: 1fr 1fr / 1fr 1fr 1fr 1fr;
+      }
+      #patrocinadores > div > div {
+        grid-template: 1fr / 1fr 1fr 1fr 1fr 1fr 1fr;
+      }
+    }
+
+    @media (min-width: 1440px) {
+      #ponentes>div {
+        grid-template: 1fr 1fr/ 1fr 1fr 1fr 1fr 1fr;
+      }
+
+      #ponentes h3 {
+        font-size: 1.8em;
+      }
+
+      #ponentes>div>div:nth-child(6) {
+        grid-column-start: 2;
+      }
+      footer >div {
+        grid-template: 1fr 1fr / 1fr 1fr 1fr;
+      }
+    }
+  </style>
 </head>
+
 <body>
+  <section id="cuentaregresiva">
     <div class="container">
-        <img src="TEDxUniMontemorelos_white_tagline.svg" alt="TEDxUniMontemorelos">
-        <h1 id="headline"></h1>
-        <div id="countdown">
-          <ul>
-            <li><span id="days"></span>Días</li>
-            <li><span id="hours"></span>Horas</li>
-            <li><span id="minutes"></span>Minutos</li>
-            <li><span id="seconds"></span>Segundos</li>
-          </ul>
-        </div>
-        <div id="content" class="emoji">
-          <span>📢</span>
-          <span>🤓</span>
-          <span>🎤</span>
-        </div>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdiNbvbZML6PUEF8lyu-QqjIa08bu-qn9-R0xAzF62EHmH7Nw/viewform">Inscríbete</a>
-        <p><strong>Fecha:</strong> 25 de abril del 2023<br>
-            <strong>Hora:</strong> 7pm<br>
-            <strong>Lugar:</strong> Universidad de Montemorelos | Auditorio de FACSA<br>
-            <strong>Costo:</strong> <span>$1,500MX</span> $1,000MX<br>
+      <img src="TEDxUniMontemorelos_white_tagline.svg" alt="TEDxUniMontemorelos">
+      <h1 id="headline"></h1>
+      <div id="countdown">
+        <ul>
+          <li><span id="days"></span>Días</li>
+          <li><span id="hours"></span>Horas</li>
+          <li><span id="minutes"></span>Minutos</li>
+          <li><span id="seconds"></span>Segundos</li>
+        </ul>
+      </div>
+      <div id="content" class="emoji">
+        <span>📢</span>
+        <span>🤓</span>
+        <span>🎤</span>
+      </div>
+      <a
+        href="https://docs.google.com/forms/d/e/1FAIpQLSdiNbvbZML6PUEF8lyu-QqjIa08bu-qn9-R0xAzF62EHmH7Nw/viewform">Inscríbete</a>
+      <p><strong>Fecha:</strong> 25 de abril del 2023<br>
+        <strong>Hora:</strong> 7pm<br>
+        <strong>Lugar:</strong> Universidad de Montemorelos | Auditorio de FACSA<br>
+        <strong>Costo:</strong> <span>$1,500MX</span> $1,000MX<br>
+      </p>
+    </div>
+  </section>
+  <section id="theme">
+    <div>
+      <h2>Inspirar para trascender</h2>
+      <p>Este evento está diseñado para inspirar a la audiencia a reflexionar sobre el valor y como trascender en
+        nuestras vidas y comunidades. Creemos que todos podemos vivir de manera extraordinaria, y que al hacerlo,
+        podemos enriquecer y mejorar el mundo que nos rodea.<br><br>
+
+        Durante el evento, escucharemos a expertos en diferentes campos que nos compartirán sus experiencias y
+        reflexiones sobre el como fueron inspirados y que los motiva a trascender más allá de lo ordinario.<br>
+
+        Además de las charlas principales, habrá actividades interactivas diseñadas para ayudar a la audiencia a
+        reflexionar sobre sus propias experiencias y encontrar maneras de hallar la inspiración en sus vidas
+        diarias.<br><br>
+
+        Estamos entusiasmados de tener una variedad de oradores talentosos y apasionados en este evento, y esperamos que
+        nuestra audiencia salga inspirada para hacer una diferencia positiva en el mundo.</p>
+    </div>
+  </section>
+  <section id="ponentes">
+    <h2>Ponentes</h2>
+    <div>
+      <!--Ponente 1-->
+      <div class="ponente">
+        <img src="Daniel-Gutierrez-TEDX.jpg" alt="Daniel Gutiérrez">
+        <h3 class="box">Daniel Gutiérrez</h3>
+        <p class="box">
+          Docente universitario / Director de la FITEC
         </p>
       </div>
-      <script>
-        // Esta función se autoejecuta inmediatamente cuando el script se carga en el navegador
-          (function () {
-            // Define los valores de tiempo en milisegundos para calcular el tiempo restante
-            const second = 1000,
-              minute = second * 60,
-              hour = minute * 60,
-              day = hour * 24;
+      <!--Ponente 2-->
+      <div class="ponente">
+        <img src="Claudia-guajardo-TEDX.jpg" alt="Claudia Guajardo">
+        <h3 class="box">Claudia Guajardo</h3>
+        <p class="box">
+          Contador Público y fundadora de Cardiochavitos
+        </p>
+      </div>
+      <!--Ponente 3-->
+      <div class="ponente">
+        <img src="Ismael-castillo-TEDX.jpg" alt="Ismael Castillo">
+        <h3 class="box">Ismael Castillo</h3>
+        <p class="box">
+          Profesor y rector de la Universidad de Montemorelos
+        </p>
+      </div>
 
-            // Obtiene la fecha actual y el año siguiente
-            let today = new Date(),
-              dd = String(today.getDate()).padStart(2, "0"), // Obtiene el día actual en formato de dos dígitos
-              mm = String(today.getMonth() + 1).padStart(2, "0"), // Obtiene el mes actual en formato de dos dígitos
-              yyyy = today.getFullYear(), // Obtiene el año actual
-              nextYear = yyyy + 1, // Obtiene el año siguiente
-              dayMonth = "04/25/", // Define la fecha de cumpleaños en formato mes/día/
-              birthday = dayMonth + yyyy; // Combina la fecha de cumpleaños con el año actual para obtener la fecha de cumpleaños completa
+      <!--Ponente 4-->
+      <div class="ponente">
+        <img src="jorge-sosa.jpg" alt="Jorge Sosa">
+        <h3 class="box">Jorge Sosa</h3>
+        <p class="box">Socio Fundador y Director Creativo de Lorogranada, laboratorio Creativo para el impacto Social.
+        </p>
+      </div>
+      <!--Ponente 5-->
+      <div class="ponente">
+        <img src="Lorena-TEDX.jpg" alt="Lorena Peñaloza">
+        <h3 class="box">Lorena Peñaloza</h3>
+        <p class="box">
+          Psicóloga clínica y escritora
+        </p>
+      </div>
+      <!--Ponente 6-->
+      <div class="ponente">
+        <img src="claudia-dominguez-TEDX.jpg" alt="Claudia Domínguez">
+        <h3 class="box">Claudia Domínguez</h3>
+        <p class="box">
+          Oftalmóloga/consulta privada
+        </p>
+      </div>
+      <!--Ponente 7-->
+      <div class="ponente">
+        <img src="Manuel-Wong-TEDX.jpg" alt="Manuel Wong">
+        <h3 class="box">Manuel Wong</h3>
+        <p class="box">
+          Cirujano Cardiotorácico y de Trasplante
+        </p>
+      </div>
+      <!--Ponente 8-->
+      <div class="ponente">
+        <img src="Ruben-hernandez.jpg" alt="Rubén Hernández">
+        <h3 class="box">Rubén Hernández</h3>
+        <p class="box">
+          Arquitecto y cordinador de la carrera de Arquitectura de la Universidad de Montemorelos
+        </p>
+      </div>
 
-            // Formatea la fecha actual en un string con el mismo formato de mes/día/año que la fecha de cumpleaños
-            today = mm + "/" + dd + "/" + yyyy;
+    </div>
+  </section>
+  <section id="patrocinadores">
+    <div>
+      <h2>Patrocinadores</h2>
+      <div>
+        <img src="COLPAC.PNG" alt="Colpac">
+        <img src="HOSPITAL-LA-CARLOTA.jpg" alt="La Carlota">
+        <img src="Logo_RIDI.png" alt="Red de investigadores">
+        <img src="LogoVA.png" alt="Oftavisión">
+        <img src="montemorelos.png" alt="Montemorelos">
+        <img src="ONE_CARD.png" alt="One Card">
+      </div>
+    </div>
+  </section>
+  <section id="partners">
+    <div>
+      <h2>Conviertete en patrocinador</h2>
+      <p>Durante TEDxUniMontemorelos tendremos la oportunidad de contar con 8 speakers, y sus ponencias serán grabadas y
+        cargadas
+        en la página oficial de TED.com y en su canal de YouTube de TEDx. Nos emociona contarte que esta licencia nos da
+        la oportunidad
+        de elegir un grupo selecto de organizaciones y empresas comprometidas con el crecimiento de nuestra querida
+        región citrícola. <br><br>
+        La intención es hacer sinergia y lograr que este evento sea de gran relevancia en la comunidad a la vez que
+        colaboramos contigo
+        como Partner oficial y puedas gozar también de los beneficios dando mayor reconocimiento a tu marca.
+      </p>
+      <table>
+        <thead>
+          <tr>
+            <th>Socio Plata ($5,000)</th>
+            <th>Socio Oro ($10,000)</th>
+            <th>Socio Platino ($15,000)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1 entrada VIP</td>
+            <td>2 entrada VIP</td>
+            <td>2 entrada VIP</td>
+          </tr>
+          <tr>
+            <td>1 publicación RRSS</td>
+            <td>2 publicación RRSS</td>
+            <td>3 publicación RRSS</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td>Presentación de Speaker <a href="https://www.youtube.com/watch?v=8nKCA9h-7BA">(Su marca al inicio de la charla)</a></td>
+          </tr>
+        </tbody>
+      </table>
+      <p>Más información por <a href="mailto:jairo.sanchez@um.edu.mx"> correo electrónico</a></p>
+    </div>
+  </section>
+  <footer>
+    <div>
+      <div>
+        <h2>Contáctanos</h2>
+        <a href="mailto:tedx@um.edu.mx">tedx@um.edu.mx</a>
+      </div>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdiNbvbZML6PUEF8lyu-QqjIa08bu-qn9-R0xAzF62EHmH7Nw/viewform">Inscríbete</a>
+      <div>
+        <h2>Síguenos</h2>
+        <a href="twitter.com/@TEDxUniMonte"><img src="twitter.svg" alt="Twitter"></a>
+        <a href="https://www.facebook.com/TEDxUniMontemorelos/"><img src="facebook.svg" alt="Facebook"></a>
+        <a href="https://www.instagram.com/tedxunimontemorelos/"><img src="instagram.svg" alt="Instagram"></a>
+      </div>
+      <div>
+        Este evento TEDx independiente se realiza bajo licencia de TED. Copyright Stichting TEDxUniMontemorelos, <span id="anio"></span>. Todos los derechos reservados. <a href="https://www.ted.com/about/our-organization/our-policies-terms/privacy-policy">Declaracion de privacidad</a>
+      </div>
+    </div>
+  </footer>
+  <script>
+    // Esta función se autoejecuta inmediatamente cuando el script se carga en el navegador
+    (function () {
+      // Define los valores de tiempo en milisegundos para calcular el tiempo restante
+      const second = 1000,
+        minute = second * 60,
+        hour = minute * 60,
+        day = hour * 24;
 
-            // Si la fecha actual es posterior a la fecha de cumpleaños, establece la fecha de cumpleaños al próximo año
-            if (today > birthday) {
-              birthday = dayMonth + nextYear;
-            }
+      // Obtiene la fecha actual y el año siguiente
+      let today = new Date(),
+        dd = String(today.getDate()).padStart(2, "0"), // Obtiene el día actual en formato de dos dígitos
+        mm = String(today.getMonth() + 1).padStart(2, "0"), // Obtiene el mes actual en formato de dos dígitos
+        yyyy = today.getFullYear(), // Obtiene el año actual
+        nextYear = yyyy + 1, // Obtiene el año siguiente
+        dayMonth = "04/25/", // Define la fecha de cumpleaños en formato mes/día/
+        birthday = dayMonth + yyyy; // Combina la fecha de cumpleaños con el año actual para obtener la fecha de cumpleaños completa
 
-            // Obtiene la fecha y hora de la fecha de cumpleaños
-            const countDown = new Date(birthday).getTime(),
-              // Crea un intervalo que se ejecutará cada milisegundo para actualizar el contador de tiempo restante
-              x = setInterval(function () {
-                // Obtiene la fecha y hora actuales
-                const now = new Date().getTime(),
-                  // Calcula la diferencia entre la fecha de cumpleaños y la fecha y hora actuales
-                  distance = countDown - now;
+      // Formatea la fecha actual en un string con el mismo formato de mes/día/año que la fecha de cumpleaños
+      today = mm + "/" + dd + "/" + yyyy;
 
-                // Actualiza los elementos HTML con el tiempo restante en días, horas, minutos y segundos
-                document.getElementById("days").innerText = Math.floor(distance / (day)),
-                  document.getElementById("hours").innerText = Math.floor((distance % (day)) / (hour)),
-                  document.getElementById("minutes").innerText = Math.floor((distance % (hour)) / (minute)),
-                  document.getElementById("seconds").innerText = Math.floor((distance % (minute)) / second);
+      // Si la fecha actual es posterior a la fecha de cumpleaños, establece la fecha de cumpleaños al próximo año
+      if (today > birthday) {
+        birthday = dayMonth + nextYear;
+      }
 
-                // Si la fecha y hora actuales son posteriores a la fecha de cumpleaños, detiene el intervalo y muestra un mensaje de "Llegó la hora"
-                if (distance < 0) {
-                  document.getElementById("headline").innerText = "Llegó la hora!";
-                  document.getElementById("countdown").style.display = "none";
-                  document.getElementById("content").style.display = "block";
-                  clearInterval(x);
-                }
-              }, 0)
-          }());
-      </script>
+      // Obtiene la fecha y hora de la fecha de cumpleaños
+      const countDown = new Date(birthday).getTime(),
+        // Crea un intervalo que se ejecutará cada milisegundo para actualizar el contador de tiempo restante
+        x = setInterval(function () {
+          // Obtiene la fecha y hora actuales
+          const now = new Date().getTime(),
+            // Calcula la diferencia entre la fecha de cumpleaños y la fecha y hora actuales
+            distance = countDown - now;
+
+          // Actualiza los elementos HTML con el tiempo restante en días, horas, minutos y segundos
+          document.getElementById("days").innerText = Math.floor(distance / (day)),
+            document.getElementById("hours").innerText = Math.floor((distance % (day)) / (hour)),
+            document.getElementById("minutes").innerText = Math.floor((distance % (hour)) / (minute)),
+            document.getElementById("seconds").innerText = Math.floor((distance % (minute)) / second);
+
+          // Si la fecha y hora actuales son posteriores a la fecha de cumpleaños, detiene el intervalo y muestra un mensaje de "Llegó la hora"
+          if (distance < 0) {
+            document.getElementById("headline").innerText = "Llegó la hora!";
+            document.getElementById("countdown").style.display = "none";
+            document.getElementById("content").style.display = "block";
+            clearInterval(x);
+          }
+        }, 0)
+    }());
+    //--- Código para pintar el año en el footer
+// crear un objeto Date para obtener la fecha actual
+var fechaActual = new Date();
+
+// obtener el año actual con el método getFullYear()
+var anioActual = fechaActual.getFullYear();
+
+//Función para imprimir el año en el elemento con el ID "anio"
+function muestraAnioActual() {
+    //Muestra
+    document.getElementById("anio").innerHTML =anioActual;
+}
+//ejecuta la función para mostrar el año
+muestraAnioActual();
+  </script>
 </body>
+
 </html>
