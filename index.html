@@ -326,15 +326,20 @@
       #patrocinadores > div > div {
         grid-template: 1fr 1fr / 1fr 1fr 1fr;
       }
-      
+      #patrocinadores > div > div > img:nth-child(7){
+        grid-column-start: 2;
+      }
     }
 
     @media (min-width: 1024px) {
       #ponentes>div {
         grid-template: 1fr 1fr / 1fr 1fr 1fr 1fr;
       }
+      #patrocinadores > div > div > img:nth-child(7){
+        grid-column-start:inherit;
+      }
       #patrocinadores > div > div {
-        grid-template: 1fr / 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template: 1fr 1fr / 1fr 1fr 1fr 1fr;
       }
     }
 
@@ -352,6 +357,9 @@
       }
       footer >div {
         grid-template: 1fr 1fr / 1fr 1fr 1fr;
+      }
+      #patrocinadores > div > div {
+        grid-template: 1fr / 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
       }
     }
   </style>
@@ -434,7 +442,7 @@
       <div class="ponente">
         <img src="jorge-sosa.jpg" alt="Jorge Sosa">
         <h3 class="box">Jorge Sosa</h3>
-        <p class="box">Socio Fundador y Director Creativo de Lorogranada, laboratorio Creativo para el impacto Social.
+        <p class="box">Socio Fundador y Director Creativo de Lorogranada, laboratorio Creativo para el impacto social.
         </p>
       </div>
       <!--Ponente 5-->
@@ -482,12 +490,13 @@
         <img src="LogoVA.png" alt="Oftavisión">
         <img src="montemorelos.png" alt="Montemorelos">
         <img src="ONE_CARD.png" alt="One Card">
+        <img src="logocanoas.jpg" alt="Sanatorio Canoas">
       </div>
     </div>
   </section>
   <section id="partners">
     <div>
-      <h2>Conviertete en patrocinador</h2>
+      <h2>Conviértete en patrocinador</h2>
       <p>Durante TEDxUniMontemorelos tendremos la oportunidad de contar con 8 speakers, y sus ponencias serán grabadas y
         cargadas
         en la página oficial de TED.com y en su canal de YouTube de TEDx. Nos emociona contarte que esta licencia nos da
@@ -509,13 +518,13 @@
         <tbody>
           <tr>
             <td>1 entrada VIP</td>
-            <td>2 entrada VIP</td>
-            <td>2 entrada VIP</td>
+            <td>2 entradas VIP</td>
+            <td>2 entradas VIP</td>
           </tr>
           <tr>
             <td>1 publicación RRSS</td>
-            <td>2 publicación RRSS</td>
-            <td>3 publicación RRSS</td>
+            <td>2 publicaciones RRSS</td>
+            <td>3 publicaciones RRSS</td>
           </tr>
           <tr>
             <td></td>
@@ -541,7 +550,7 @@
         <a href="https://www.instagram.com/tedxunimontemorelos/"><img src="instagram.svg" alt="Instagram"></a>
       </div>
       <div>
-        Este evento TEDx independiente se realiza bajo licencia de TED. Copyright Stichting TEDxUniMontemorelos, <span id="anio"></span>. Todos los derechos reservados. <a href="https://www.ted.com/about/our-organization/our-policies-terms/privacy-policy">Declaracion de privacidad</a>
+        Este evento TEDx independiente se realiza bajo licencia de TED. Copyright Stichting TEDxUniMontemorelos, <span id="anio"></span>. Todos los derechos reservados. <a href="https://www.ted.com/about/our-organization/our-policies-terms/privacy-policy">Declaración de privacidad</a>
       </div>
     </div>
   </footer>
