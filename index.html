@@ -93,7 +93,7 @@
     #cuentaregresiva>div>a, footer > div > a {
       text-decoration: none;
       color: white;
-      background: #f00;
+      background: #666;
       padding: 0.5em 1.5em;
       font-size: 1.3em;
       margin: 1.5em auto;
@@ -102,12 +102,12 @@
     }
 
     #cuentaregresiva>div>a:hover, footer > div > a:hover {
-      color: #f00;
+      color: #666;
       background: white;
     }
 
     #cuentaregresiva>div>a:active, footer > div > a:active {
-      color: rgb(187, 5, 5);
+      color: #666;
       background: rgb(214, 212, 212);
       box-shadow: 0 0 6px 3px #666 inset;
     }
@@ -383,8 +383,7 @@
         <span>🤓</span>
         <span>🎤</span>
       </div>
-      <a
-        href="https://docs.google.com/forms/d/e/1FAIpQLSdiNbvbZML6PUEF8lyu-QqjIa08bu-qn9-R0xAzF62EHmH7Nw/viewform">Inscríbete</a>
+      <a href="#">Sold out</a>
       <p><strong>Fecha:</strong> 25 de abril del 2023<br>
         <strong>Hora:</strong> 7pm<br>
         <strong>Lugar:</strong> Universidad de Montemorelos | Auditorio de FACSA<br>
@@ -418,7 +417,7 @@
         <img src="Daniel-Gutierrez-TEDX.jpg" alt="Daniel Gutiérrez">
         <h3 class="box">Daniel Gutiérrez</h3>
         <p class="box">
-          Docente universitario / Director de la Facultad de Ingeniería y Tecnología de la Universisad de Montemorelos
+          Docente universitario / Director de la Facultad de Ingeniería y Tecnología de la Universidad de Montemorelos
         </p>
       </div>
       <!--Ponente 2-->
@@ -502,7 +501,7 @@
         en la página oficial de TED.com y en su canal de YouTube de TEDx. Nos emociona contarte que esta licencia nos da
         la oportunidad
         de elegir un grupo selecto de organizaciones y empresas comprometidas con el crecimiento de nuestra querida
-        región citrícola. <br><br>
+        Región Citrícola. <br><br>
         La intención es hacer sinergia y lograr que este evento sea de gran relevancia en la comunidad a la vez que
         colaboramos contigo
         como Partner oficial y puedas gozar también de los beneficios dando mayor reconocimiento a tu marca.
@@ -542,7 +541,7 @@
         <h2>Contáctanos</h2>
         <a href="mailto:tedx@um.edu.mx">tedx@um.edu.mx</a>
       </div>
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdiNbvbZML6PUEF8lyu-QqjIa08bu-qn9-R0xAzF62EHmH7Nw/viewform">Inscríbete</a>
+      <a href="#">Sold out</a>
       <div>
         <h2>Síguenos</h2>
         <a href="twitter.com/@TEDxUniMonte"><img src="twitter.svg" alt="Twitter"></a>
@@ -555,56 +554,41 @@
     </div>
   </footer>
   <script>
-    // Esta función se autoejecuta inmediatamente cuando el script se carga en el navegador
-    (function () {
-      // Define los valores de tiempo en milisegundos para calcular el tiempo restante
-      const second = 1000,
-        minute = second * 60,
-        hour = minute * 60,
-        day = hour * 24;
+//Script de la cuenta regresiva
+// Esta función se autoejecuta inmediatamente cuando el script se carga en el navegador
+(function () {
+// Define los valores de tiempo en milisegundos para calcular el tiempo restante
+const second = 1000,
+minute = second * 60,
+hour = minute * 60,
+day = hour * 24;
 
-      // Obtiene la fecha actual y el año siguiente
-      let today = new Date(),
-        dd = String(today.getDate()).padStart(2, "0"), // Obtiene el día actual en formato de dos dígitos
-        mm = String(today.getMonth() + 1).padStart(2, "0"), // Obtiene el mes actual en formato de dos dígitos
-        yyyy = today.getFullYear(), // Obtiene el año actual
-        nextYear = yyyy + 1, // Obtiene el año siguiente
-        dayMonth = "04/25/", // Define la fecha de cumpleaños en formato mes/día/
-        birthday = dayMonth + yyyy; // Combina la fecha de cumpleaños con el año actual para obtener la fecha de cumpleaños completa
+// Obtiene la fecha y hora del evento de cuenta regresiva en milisegundos desde el 1 de enero de 1970
+let countDownDate = new Date("Apr 24, 2023 19:00:00").getTime();
 
-      // Formatea la fecha actual en un string con el mismo formato de mes/día/año que la fecha de cumpleaños
-      today = mm + "/" + dd + "/" + yyyy;
+// Crea un intervalo que se ejecutará cada milisegundo para actualizar el contador de tiempo restante
+const x = setInterval(function () {
+// Obtiene la fecha y hora actuales en milisegundos desde el 1 de enero de 1970
+const now = new Date().getTime();
+// Calcula la diferencia entre la fecha y hora del evento de cuenta regresiva y la fecha y hora actuales
+const distance = countDownDate - now;
 
-      // Si la fecha actual es posterior a la fecha de cumpleaños, establece la fecha de cumpleaños al próximo año
-      if (today > birthday) {
-        birthday = dayMonth + nextYear;
-      }
+// Actualiza los elementos HTML con el tiempo restante en días, horas, minutos y segundos
+document.getElementById("days").innerText = Math.floor(distance / (day)),
+document.getElementById("hours").innerText = Math.floor((distance % (day)) / (hour)),
+document.getElementById("minutes").innerText = Math.floor((distance % (hour)) / (minute)),
+document.getElementById("seconds").innerText = Math.floor((distance % (minute)) / second);
 
-      // Obtiene la fecha y hora de la fecha de cumpleaños
-      const countDown = new Date(birthday).getTime(),
-        // Crea un intervalo que se ejecutará cada milisegundo para actualizar el contador de tiempo restante
-        x = setInterval(function () {
-          // Obtiene la fecha y hora actuales
-          const now = new Date().getTime(),
-            // Calcula la diferencia entre la fecha de cumpleaños y la fecha y hora actuales
-            distance = countDown - now;
-
-          // Actualiza los elementos HTML con el tiempo restante en días, horas, minutos y segundos
-          document.getElementById("days").innerText = Math.floor(distance / (day)),
-            document.getElementById("hours").innerText = Math.floor((distance % (day)) / (hour)),
-            document.getElementById("minutes").innerText = Math.floor((distance % (hour)) / (minute)),
-            document.getElementById("seconds").innerText = Math.floor((distance % (minute)) / second);
-
-          // Si la fecha y hora actuales son posteriores a la fecha de cumpleaños, detiene el intervalo y muestra un mensaje de "Llegó la hora"
-          if (distance < 0) {
-            document.getElementById("headline").innerText = "Llegó la hora!";
-            document.getElementById("countdown").style.display = "none";
-            document.getElementById("content").style.display = "block";
-            clearInterval(x);
-          }
-        }, 0)
-    }());
-    //--- Código para pintar el año en el footer
+// Si la fecha y hora actuales son posteriores a la fecha y hora del evento de cuenta regresiva, detiene el intervalo y muestra un mensaje de "Llegó la hora"
+if (distance < 0) {
+  document.getElementById("headline").innerText = "Llegó la hora!";
+  document.getElementById("countdown").style.display = "none";
+  document.getElementById("content").style.display = "block";
+  clearInterval(x);
+}
+}, 0)
+})();
+//--- Código para pintar el año en el footer
 // crear un objeto Date para obtener la fecha actual
 var fechaActual = new Date();
 
